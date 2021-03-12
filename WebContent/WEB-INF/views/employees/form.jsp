@@ -17,7 +17,7 @@
 <br /><br />
 
 <label for="passwprd">パスワード</label><br />
-<input type="password" name="password" value="${employee.password}" />
+<input type="password" name="password" />
 <br /><br />
 
 <label for="admin_flag">権限</label><br />
