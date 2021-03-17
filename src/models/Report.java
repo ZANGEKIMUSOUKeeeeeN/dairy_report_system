@@ -26,8 +26,8 @@ import javax.persistence.Table;
             query = "SELECT COUNT(r) FROM Report AS r"
             ),
 })
-@Entity
 
+@Entity
 public class Report {
     @Id
     @Column(name = "id")

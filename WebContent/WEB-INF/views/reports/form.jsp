@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:if test="${errors != null}">
 	<div id="flush_error">
 		入力内容にエラーがあります。<br />
@@ -8,23 +9,20 @@
 		</c:forEach>
 	</div>
 </c:if>
-<label for="code">社員番号</label><br />
-<input type="text" name="code" value="${employee.code}" />
+<label for="report_date">日付</label><br />
+<input type="date" name="report_date" value="<fmt:formatDate value='${report.report_date}' pattern='yyyy-MM-dd' />" />
 <br /><br />
 
 <label for="name">氏名</label><br />
-<input type="text" name="name" value="${employee.name}" />
+<c:out value="${sessionScope.login_employee.name}" />
 <br /><br />
 
-<label for="passwprd">パスワード</label><br />
-<input type="password" name="password" />
+<label for="title">タイトル</label><br />
+<input type="text" name="title" value="${report.title}" />
 <br /><br />
 
-<label for="admin_flag">権限</label><br />
-<select name="admin_flag">
-	<option value="0"<c:if test="${employee.admin_flag == 0}"> selected</c:if>>一般</option>
-	<option value="1"<c:if test="$[employee.admin_flag == 1]"> selected</c:if>>管理者</option>
-</select>
+<label for="content">内容</label><br />
+<textarea name="content" rows="10" cols="50">${report.content}</textarea>
 <br /><br />
 
 <input type="hidden" name="_token" value="${_token}" />
